@@ -1,0 +1,21 @@
+{
+  "name": "listinglab-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ListingLab - Open-Weight AI E-commerce Listing Generator for Small Online Sellers",
+  "scripts": {
+    "dev": "concurrently -n \"API,WEB\" -c \"blue,green\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build": "npm run build:server && npm run build:client",
+    "render-build": "npm run install:all && npm run build",
+    "start": "node server/dist/index.js",
+    "test": "npm run test --prefix server",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
